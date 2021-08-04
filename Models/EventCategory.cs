@@ -12,7 +12,7 @@ namespace CodingEventsDemo.Models
 
         public EventCategory(string name)
         {
-            Name = name;
+            this.Name = name;
         }
     }
 }
