@@ -59,3 +59,7 @@ E:\Educational\CSharp\Unit2\ch19\CodingEventsDemo-enums\CodingEventsDemo\obj\Deb
 E:\Educational\CSharp\Unit2\ch19\CodingEventsDemo-enums\CodingEventsDemo\obj\Debug\netcoreapp3.1\CodingEventsDemo.genruntimeconfig.cache
 E:\Educational\CSharp\Unit2\ch19\CodingEventsDemo-enums\CodingEventsDemo\obj\Debug\netcoreapp3.1\Razor\Views\EventCategory\Index.cshtml.g.cs
 E:\Educational\CSharp\Unit2\ch19\CodingEventsDemo-enums\CodingEventsDemo\obj\Debug\netcoreapp3.1\Razor\Views\EventCategory\Create.cshtml.g.cs
+E:\Educational\CSharp\Unit2\ch19\CodingEventsDemo-enums\CodingEventsDemo\obj\Debug\netcoreapp3.1\Razor\Views\Events\Detail.cshtml.g.cs
+E:\Educational\CSharp\Unit2\ch19\CodingEventsDemo-enums\CodingEventsDemo\obj\Debug\netcoreapp3.1\Razor\Views\Tag\Add.cshtml.g.cs
+E:\Educational\CSharp\Unit2\ch19\CodingEventsDemo-enums\CodingEventsDemo\obj\Debug\netcoreapp3.1\Razor\Views\Tag\AddEvent.cshtml.g.cs
+E:\Educational\CSharp\Unit2\ch19\CodingEventsDemo-enums\CodingEventsDemo\obj\Debug\netcoreapp3.1\Razor\Views\Tag\Index.cshtml.g.cs

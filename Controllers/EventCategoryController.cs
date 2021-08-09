@@ -20,7 +20,7 @@ namespace CodingEventsDemo.Controllers
         }
         public IActionResult Index()
         {
-            List<EventCategory> category = _context.Category.ToList();
+            List<EventCategory> category = _context.Categories.ToList();
             return View(category);
         }
 
@@ -37,7 +37,7 @@ namespace CodingEventsDemo.Controllers
             if (ModelState.IsValid)
             {
                 EventCategory newEventCategory = new EventCategory(addEventCategoryViewModel.Name);
-                _context.Category.Add(newEventCategory); // This stages the data
+                _context.Categories.Add(newEventCategory); // This stages the data
                 _context.SaveChanges(); // This actually saves the data in the DB
 
                 return Redirect("/EventCategory");

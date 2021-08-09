@@ -6,6 +6,7 @@ using CodingEventsDemo.Data;
 using CodingEventsDemo.Models;
 using CodingEventsDemo.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,15 +22,18 @@ namespace coding_events_practice.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            List<Event> events = _context.Events.ToList();
-
+            //List<Event> events = _context.Events.ToList();
+            List<Event> events = _context.Events
+            .Include(e => e.Category)
+            .ToList();
             return View(events);
         }
 
         public IActionResult Add()
         {
-            AddEventViewModel addEventViewModel = new AddEventViewModel();
-
+            //AddEventViewModel addEventViewModel = new AddEventViewModel();
+            List<EventCategory> categories = _context.Categories.ToList();
+            AddEventViewModel addEventViewModel = new AddEventViewModel(categories);
             return View(addEventViewModel);
         }
 
@@ -38,12 +42,13 @@ namespace coding_events_practice.Controllers
         {
             if (ModelState.IsValid)
             {
+                EventCategory theCategory = _context.Categories.Find(addEventViewModel.CategoryId);
                 Event newEvent = new Event
                 {
                     Name = addEventViewModel.Name,
                     Description = addEventViewModel.Description,
                     ContactEmail = addEventViewModel.ContactEmail,
-                    Type = addEventViewModel.Type
+                    Category = theCategory
                 };
 
                 _context.Events.Add(newEvent); // This stages the data
@@ -74,6 +79,19 @@ namespace coding_events_practice.Controllers
             _context.SaveChanges();
 
             return Redirect("/Events");
+        }
+
+        [HttpGet]
+        public IActionResult Detail(int id)
+        {
+            Event theEvent = _context.Events
+               .Include(e => e.Category)
+               .FirstOrDefault(e => e.Id == id);
+
+            EventDetailViewModel viewModel = new EventDetailViewModel(theEvent);
+
+
+            return View(viewModel);
         }
     }
 }
